@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">orange</button>
+    <button id="blue">blue</button>
+</body>
+<script>
+//lexical scoping means that the function inside function can access the parent valuse but not vice versa
+
+// function parent(){
+//     let name="izhaar"
+//     function child(){
+//         console.log(name);
+//     }
+//     child()
+// }
+
+</script>
+<script>
+    //closure returning a function reference from function
+        //     function makeFun(){
+        //     let name="izhaar"
+        //     function myName(){
+        //         console.log(name);
+        //     }
+        //     return myName;
+        // }
+        // const myFunc=makeFun();
+        // myFunc();
+
+</script>
+
+<script>
+    //interview explain with color button example
+
+        // document.getElementById('orange').addEventListener('click',()=>{
+        //     document.body.style.background='orange'
+        // })
+        // document.getElementById('blue').addEventListener('click',()=>{
+        //     document.body.style.background='blue'
+        // })
+    //but the above cannot be dont to 100 buttons
+    //so use closure
+
+    function clickHandler(color) {
+       return ()=>{
+        document.body.style.background=`${color}`
+       }
+        
+    }
+
+    document.getElementById('blue').onclick=clickHandler("blue")
+    document.getElementById('orange').onclick=clickHandler("orange")
+
+</script>
+
+</html>
